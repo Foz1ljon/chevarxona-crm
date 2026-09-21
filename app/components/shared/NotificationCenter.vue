@@ -29,7 +29,15 @@ const count = computed(() => (lowStock.value?.total ?? 0) + urgent.value.length)
 
 <template>
   <UPopover :content="{ align: 'end' }">
-    <UChip :show="count > 0" :text="count > 99 ? '99+' : count" size="lg" color="error">
+    <!-- The count has to be readable at a glance from across the workshop,
+         so the chip runs larger than the Nuxt UI default. -->
+    <UChip
+      :show="count > 0"
+      :text="count > 99 ? '99+' : count"
+      size="3xl"
+      color="error"
+      :ui="{ base: 'text-[11px] font-semibold tabular-nums ring-2 ring-default' }"
+    >
       <UButton
         icon="i-lucide-bell"
         color="neutral"

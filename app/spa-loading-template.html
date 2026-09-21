@@ -1,0 +1,102 @@
+<!--
+  Shown while the app boots (and, via `devServer.loadingTemplate`, while the dev
+  server compiles). Self-contained on purpose: no fonts, no CSS from the app,
+  nothing that could still be loading at the moment this has to be on screen.
+-->
+<div class="chevar-boot">
+  <div class="chevar-boot__mark" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="6" cy="6" r="3" />
+      <path d="M8.12 8.12 12 12" />
+      <path d="M20 4 8.12 15.88" />
+      <circle cx="6" cy="18" r="3" />
+      <path d="M14.8 14.8 20 20" />
+    </svg>
+  </div>
+
+  <p class="chevar-boot__name">Chevarxona CRM</p>
+  <p class="chevar-boot__note">Tikuvchilik ustaxonasi</p>
+
+  <div class="chevar-boot__bar"><span></span></div>
+</div>
+
+<style>
+  .chevar-boot {
+    --bg: #f8fafc;
+    --fg: #0f172a;
+    --muted: #64748b;
+    --accent: #f59e0b;
+    --track: rgba(15, 23, 42, 0.08);
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .chevar-boot {
+      --bg: #0f172a;
+      --fg: #f8fafc;
+      --muted: #94a3b8;
+      --track: rgba(248, 250, 252, 0.12);
+    }
+  }
+
+  .chevar-boot__mark {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+    animation: chevar-pulse 1.6s ease-in-out infinite;
+  }
+
+  .chevar-boot__mark svg { width: 28px; height: 28px; }
+
+  .chevar-boot__name { margin: 0; font-size: 0.9375rem; font-weight: 600; letter-spacing: -0.01em; }
+  .chevar-boot__note { margin: 0; font-size: 0.8125rem; color: var(--muted); }
+
+  .chevar-boot__bar {
+    margin-top: 1.25rem;
+    width: 160px;
+    height: 3px;
+    border-radius: 999px;
+    background: var(--track);
+    overflow: hidden;
+  }
+
+  /* A travelling sliver rather than a percentage: the boot has no progress to report. */
+  .chevar-boot__bar span {
+    display: block;
+    width: 40%;
+    height: 100%;
+    border-radius: 999px;
+    background: var(--accent);
+    animation: chevar-slide 1.2s ease-in-out infinite;
+  }
+
+  @keyframes chevar-pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.35); }
+    50% { transform: scale(1.04); box-shadow: 0 0 0 12px rgba(245, 158, 11, 0); }
+  }
+
+  @keyframes chevar-slide {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(250%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chevar-boot__mark { animation: none; }
+    .chevar-boot__bar span { animation: none; width: 100%; opacity: 0.6; }
+  }
+</style>

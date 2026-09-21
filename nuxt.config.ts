@@ -1,3 +1,11 @@
+import { readFileSync } from 'node:fs'
+
+/**
+ * One branded boot screen, used in both places Nuxt would otherwise show its
+ * own: the SPA loading template and the dev server's compile screen.
+ */
+const bootScreen = readFileSync(new URL('./app/spa-loading-template.html', import.meta.url), 'utf-8')
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -44,6 +52,9 @@ export default defineNuxtConfig({
     public: {
       appName: 'Chevarxona CRM',
       currency: process.env.NUXT_PUBLIC_CURRENCY || 'UZS',
+      // Prints the seeded demo accounts on the sign-in screen. Set to false on
+      // a real workshop's deployment.
+      demoLogin: process.env.NUXT_PUBLIC_DEMO_LOGIN !== 'false',
       // Canonical origin for og:url / canonical links. Vercel exposes the
       // production domain itself, so a preview deploy still gets real URLs;
       // locally we fall back to the request origin in `app.vue`.
@@ -59,6 +70,10 @@ export default defineNuxtConfig({
     experimental: {
       asyncContext: true
     }
+  },
+
+  devServer: {
+    loadingTemplate: () => bootScreen
   },
 
   app: {

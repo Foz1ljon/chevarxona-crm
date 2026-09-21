@@ -30,6 +30,10 @@ admin@chevarxona.uz / admin123     # super admin
 nodira@chevarxona.uz / demo1234    # manager (every demo staff account)
 ```
 
+Both accounts are printed on the sign-in screen with a button that fills the
+form, so a demo instance can be walked into. Hide that block with
+`NUXT_PUBLIC_DEMO_LOGIN=false`.
+
 Change that password immediately under **Settings → Staff**, or set
 `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD` before the first run.
 
@@ -253,11 +257,17 @@ environment:
 | `SEED_ON_BOOT` | `false`. Otherwise every cold start tries to seed the demo workshop. |
 | `SEED_RESET` | `false` (or leave it out). |
 | `NUXT_PUBLIC_SITE_URL` | Only needed for a custom domain; otherwise the Vercel domain is used. |
+| `NUXT_PUBLIC_DEMO_LOGIN` | `false` on a real workshop's instance — it hides the demo accounts printed on the sign-in screen. |
 
 Create the first admin by seeding once locally against the production database,
 or by setting `SEED_ON_BOOT=true` for a single deploy and turning it off again.
 
 ### SEO and link previews
+
+The favicon, the app icons and the boot screen all carry the workshop's mark
+(`public/favicon.ico`, `public/icon-*.png`, `app/spa-loading-template.html` —
+the last one doubles as the dev server's compile screen through
+`devServer.loadingTemplate`, so no Nuxt branding is left anywhere).
 
 `app.vue` emits a localised description plus the full Open Graph / Twitter set,
 so a link pasted into Telegram or Slack renders `public/og-image.jpg` with the

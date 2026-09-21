@@ -91,7 +91,7 @@
   },
   "auth": {
     "demoTitle": "Demo accounts",
-    "demoBody": "One click fills the form with working credentials (dev builds only).",
+    "demoBody": "One click fills the form. This block is for the demo — a real workshop hides it with NUXT_PUBLIC_DEMO_LOGIN=false.",
     "demoAdmin": "Administrator",
     "demoManager": "Manager",
     "signIn": "Sign in",
@@ -113,7 +113,8 @@
     "heroBody": "Client measurements, fabric reservations and the cutting-room queue in one place, so nothing is cut twice and nothing is promised late.",
     "heroFeature1": "Versioned measurement profiles per client",
     "heroFeature2": "Bill of materials with live stock reservation",
-    "heroFeature3": "Kanban pipeline from draft to pickup"
+    "heroFeature3": "Kanban pipeline from draft to pickup",
+    "demoFill": "Fill in"
   },
   "status": {
     "DRAFT": {

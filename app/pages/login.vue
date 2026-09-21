@@ -22,8 +22,12 @@ const state = reactive({ email: '', password: '' })
 const pending = ref(false)
 const formError = ref('')
 
-/** Demo credentials shortcut — development builds only. */
-const isDev = import.meta.dev
+/**
+ * Demo credentials. The seeded workshop is meant to be walked into, so the
+ * accounts are printed on the sign-in screen. A real workshop turns the block
+ * off with `NUXT_PUBLIC_DEMO_LOGIN=false`.
+ */
+const showDemo = useRuntimeConfig().public.demoLogin
 const DEMO_ACCOUNTS = [
   { email: 'admin@chevarxona.uz', password: 'admin123', labelKey: 'auth.demoAdmin' },
   { email: 'nodira@chevarxona.uz', password: 'demo1234', labelKey: 'auth.demoManager' }
@@ -120,23 +124,38 @@ function landingFor(roleKey: string) {
       </UButton>
     </UForm>
 
-    <div v-if="isDev" class="rounded-xl ring ring-default bg-elevated/40 p-3 space-y-2">
-      <p class="text-xs font-medium text-highlighted">
+    <div v-if="showDemo" class="rounded-xl ring ring-default bg-elevated/40 p-3 space-y-2.5">
+      <p class="text-xs font-medium text-highlighted flex items-center gap-1.5">
+        <UIcon name="i-lucide-key-round" class="size-3.5 text-primary" />
         {{ $t('auth.demoTitle') }}
       </p>
-      <div class="flex flex-wrap gap-2">
-        <UButton
+
+      <ul class="space-y-1.5">
+        <li
           v-for="account in DEMO_ACCOUNTS"
           :key="account.email"
-          size="xs"
-          color="neutral"
-          variant="subtle"
-          icon="i-lucide-wand-2"
-          @click="useDemoAccount(account)"
+          class="flex items-center gap-2 rounded-lg bg-default ring ring-default px-2.5 py-1.5"
         >
-          {{ $t(account.labelKey) }}
-        </UButton>
-      </div>
+          <div class="min-w-0 flex-1">
+            <p class="text-[11px] text-dimmed">
+              {{ $t(account.labelKey) }}
+            </p>
+            <p class="text-xs font-mono text-toned truncate">
+              {{ account.email }} · {{ account.password }}
+            </p>
+          </div>
+          <UButton
+            size="xs"
+            color="neutral"
+            variant="subtle"
+            icon="i-lucide-wand-2"
+            @click="useDemoAccount(account)"
+          >
+            {{ $t('auth.demoFill') }}
+          </UButton>
+        </li>
+      </ul>
+
       <p class="text-[11px] text-dimmed">{{ $t('auth.demoBody') }}</p>
     </div>
 

@@ -91,7 +91,7 @@
   },
   "auth": {
     "demoTitle": "Demo hisoblar",
-    "demoBody": "Bir marta bosib maydonlarni to‘ldirish mumkin (faqat dev rejimida).",
+    "demoBody": "Tugmani bossangiz maydonlar avtomatik to'ladi. Bu blok demo uchun: haqiqiy ustaxonada NUXT_PUBLIC_DEMO_LOGIN=false bilan o'chiriladi.",
     "demoAdmin": "Administrator",
     "demoManager": "Menejer",
     "signIn": "Kirish",
@@ -113,7 +113,8 @@
     "heroBody": "Mijoz o‘lchovlari, mato zaxiralari va bichuv navbati bir joyda — hech narsa ikki marta bichilmaydi va muddat buzilmaydi.",
     "heroFeature1": "Har bir mijoz uchun versiyalangan o‘lchov profillari",
     "heroFeature2": "Jonli ombor zaxirasi bilan materiallar ro‘yxati",
-    "heroFeature3": "Qoralamadan topshirishgacha Kanban jarayoni"
+    "heroFeature3": "Qoralamadan topshirishgacha Kanban jarayoni",
+    "demoFill": "To'ldirish"
   },
   "status": {
     "DRAFT": {
