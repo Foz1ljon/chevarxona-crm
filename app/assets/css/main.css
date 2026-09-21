@@ -1,0 +1,110 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme static {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --color-brand-50: oklch(0.977 0.014 70);
+  --color-brand-100: oklch(0.954 0.035 70);
+  --color-brand-200: oklch(0.904 0.072 70);
+  --color-brand-300: oklch(0.842 0.113 68);
+  --color-brand-400: oklch(0.775 0.148 63);
+  --color-brand-500: oklch(0.705 0.165 55);
+  --color-brand-600: oklch(0.625 0.158 46);
+  --color-brand-700: oklch(0.525 0.135 41);
+  --color-brand-800: oklch(0.438 0.109 38);
+  --color-brand-900: oklch(0.375 0.089 36);
+  --color-brand-950: oklch(0.24 0.06 34);
+}
+
+:root {
+  /* Slightly softer corners than the Nuxt UI default, without going pill-shaped. */
+  --ui-radius: 0.625rem;
+}
+
+@layer base {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--ui-primary) 26%, transparent);
+  }
+
+  /* `number` inputs still show spinners; the app uses its own steppers. */
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+/* Thin, unobtrusive scrollbars for dense enterprise tables & kanban lanes */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ui-border-accented) transparent;
+}
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb {
+  background-color: var(--ui-border-accented);
+  border-radius: 9999px;
+}
+*::-webkit-scrollbar-thumb:hover { background-color: var(--ui-border-inverted); }
+
+.kanban-drag-over {
+  outline: 2px dashed var(--ui-primary);
+  outline-offset: -4px;
+}
+
+/* ---- Reusable surface effects ---------------------------------------- */
+
+/* Cards, stat tiles and table rows that respond to the pointer. */
+.hover-lift {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  will-change: transform;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -18px color-mix(in oklab, var(--ui-text-highlighted) 45%, transparent);
+}
+
+/* Warm halo behind page headers and hero panels. */
+.page-glow {
+  background-image:
+    radial-gradient(48rem 16rem at 0% -20%, color-mix(in oklab, var(--ui-primary) 14%, transparent), transparent 65%),
+    radial-gradient(36rem 14rem at 100% 0%, color-mix(in oklab, var(--ui-secondary) 12%, transparent), transparent 70%);
+}
+
+/* Faint diagonal weave, echoes the tailoring theme on brand surfaces. */
+.weave-pattern {
+  background-image: repeating-linear-gradient(
+    45deg,
+    currentColor 0 1px,
+    transparent 1px 12px
+  );
+}
+
+/* Route change: a short, directional fade keeps navigation feeling continuous. */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(6px);
+}
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hover-lift { transition: none; }
+  .hover-lift:hover { transform: none; }
+  .page-enter-active,
+  .page-leave-active { transition: none; }
+  .page-enter-from,
+  .page-leave-to { transform: none; }
+}
