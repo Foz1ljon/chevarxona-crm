@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 import type { InferSchemaType, Model, Types } from 'mongoose'
 const { Schema, model, models } = mongoose
 
-/** Audit trail surfaced to SUPER_ADMIN under Settings → Activity. */
+/** Audit trail surfaced to SUPER_ADMIN under Settings → Activity. dd */ 
 const activityLogSchema = new Schema(
   {
     actor: { type: Schema.Types.ObjectId, ref: 'User', default: null, index: true },
