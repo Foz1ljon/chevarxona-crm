@@ -26,6 +26,7 @@ const FABRIC_TYPES = [
         <UButton
           v-if="$can(['inventory:create', 'inventory:manage'])"
           icon="i-lucide-plus"
+          data-tour="inventory-add"
           @click="table?.openCreate()"
         >
           {{ $t('inventory.addFabric') }}

@@ -115,7 +115,7 @@ async function confirmDelete() {
         <!-- Main -->
         <div class="xl:col-span-2 space-y-4">
           <!-- Garments -->
-          <div class="space-y-3">
+          <div class="space-y-3" data-tour="order-items">
             <h2 class="text-sm font-semibold text-highlighted flex items-center gap-2">
               <UIcon name="i-lucide-shirt" class="size-4 text-primary" />
               {{ $t('orders.garments') }}
@@ -171,7 +171,7 @@ async function confirmDelete() {
           </UCard>
 
           <!-- History -->
-          <UCard>
+          <UCard data-tour="order-history">
             <template #header>
               <h2 class="text-sm font-semibold text-highlighted flex items-center gap-2">
                 <UIcon name="i-lucide-history" class="size-4 text-primary" />
@@ -242,7 +242,7 @@ async function confirmDelete() {
           </UCard>
 
           <!-- Money -->
-          <UCard>
+          <UCard data-tour="order-money">
             <template #header>
               <h2 class="text-sm font-semibold text-highlighted">
                 {{ $t('orders.payment') }}
@@ -309,7 +309,7 @@ async function confirmDelete() {
           </UCard>
 
           <!-- Schedule -->
-          <UCard>
+          <UCard data-tour="order-schedule">
             <template #header>
               <h2 class="text-sm font-semibold text-highlighted">
                 {{ $t('orders.schedule') }}
@@ -349,6 +349,7 @@ async function confirmDelete() {
           </UCard>
 
           <OrdersStatusControl
+            data-tour="order-status"
             :order-id="order._id"
             :status="order.status"
             @changed="refresh()"

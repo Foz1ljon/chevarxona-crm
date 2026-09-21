@@ -871,5 +871,314 @@
     "actions": "Quick actions",
     "clients": "Clients",
     "orders": "Orders"
+  },
+  "tour": {
+    "help": "Guide",
+    "overview": "Product tour",
+    "thisPage": "Tour this page",
+    "empty": "No guide for this page yet",
+    "next": "Next",
+    "prev": "Back",
+    "done": "Done",
+    "welcome": "First time here — take the short tour",
+    "tours": {
+      "dashboard": "Tour the dashboard",
+      "orders": "Tour the board",
+      "order-new": "Tour order creation",
+      "clients": "Tour clients",
+      "inventory": "Tour the warehouse",
+      "navigation": "Tour the menu",
+      "orders-list": "Tour the order list",
+      "order-detail": "Tour the order page",
+      "client-detail": "Tour the client page",
+      "accessories": "Tour accessories",
+      "movements": "Tour the movements ledger",
+      "catalog": "Tour garment types",
+      "staff": "Tour staff",
+      "roles": "Tour roles",
+      "activity": "Tour the activity log"
+    },
+    "steps": {
+      "brand": {
+        "title": "Chevarxona CRM",
+        "body": "One workspace for the whole workshop: clients, measurements, orders and stock in one place. The tour takes about a minute."
+      },
+      "sidebar": {
+        "title": "Section menu",
+        "body": "Work starts here: Orders (board, list, new), Clients, Warehouse (fabrics, accessories, movements) and Settings. Sections you have no permission for are never shown."
+      },
+      "search": {
+        "title": "Quick search (⌘K)",
+        "body": "Type a client name, a phone number or an order number and jump straight there instead of walking the menu."
+      },
+      "quick-add": {
+        "title": "Quick add",
+        "body": "The three most common actions behind one button: new order, new client and a stock intake."
+      },
+      "notifications": {
+        "title": "Alerts",
+        "body": "Today's fittings and deadlines plus materials that dropped to their reorder point. The badge counts what needs attention."
+      },
+      "language": {
+        "title": "Language",
+        "body": "Uzbek, Russian and English. The choice is kept in a cookie and remembered on your next sign-in."
+      },
+      "theme": {
+        "title": "Light / dark mode",
+        "body": "Switch the theme to suit the room — the choice is stored in your browser."
+      },
+      "help": {
+        "title": "The guide button",
+        "body": "Restart this tour whenever you like from here. Every main page has a guide of its own."
+      },
+      "user-menu": {
+        "title": "Your profile",
+        "body": "Change your password, flip the theme or sign out from this menu."
+      },
+      "dashboard-kpis": {
+        "title": "Key numbers",
+        "body": "Active orders, this week's fittings, stock running low and revenue for the month. Clicking a card opens the matching list with the filter already applied."
+      },
+      "dashboard-pipeline": {
+        "title": "Pipeline and revenue",
+        "body": "Where orders are piling up and how revenue moved over recent months — this is where the workshop's bottleneck shows."
+      },
+      "dashboard-agenda": {
+        "title": "The next two weeks",
+        "body": "Fittings and deadlines sorted by date. Clicking a row opens the order."
+      },
+      "orders-filters": {
+        "title": "Filters",
+        "body": "Narrow by search, tailor and priority — the board updates immediately. The count on the right shows how many orders matched."
+      },
+      "orders-board": {
+        "title": "Kanban board",
+        "body": "Each column is a production stage: accepted, cutting, sewing, fitting, ready, delivered. The column header carries the order count and its value."
+      },
+      "orders-lane": {
+        "title": "Moving a card",
+        "body": "Drag a card into the next column: the status changes and stock reservations plus the history update themselves. Without the status permission the board is read-only."
+      },
+      "orders-new": {
+        "title": "New order",
+        "body": "Client, garment type, measurements, price and dates — all filled in on a single page."
+      },
+      "new-order-client": {
+        "title": "Step 1: the client",
+        "body": "Search by name or phone. If the client is not in the database yet, add them right here without leaving the order."
+      },
+      "new-order-items": {
+        "title": "Step 2: the garments",
+        "body": "Pick the type, fabric, accessories, measurements and tailor for each garment. One order can hold several garments."
+      },
+      "new-order-summary": {
+        "title": "Step 3: price and dates",
+        "body": "Discount, advance payment and the remaining balance are calculated for you, and the date fields suggest a realistic turnaround."
+      },
+      "new-order-bom": {
+        "title": "Material plan (BOM)",
+        "body": "How much fabric and how many accessories the chosen garments need, and whether stock covers it. A shortage is flagged before you save."
+      },
+      "new-order-submit": {
+        "title": "Saving",
+        "body": "Once the order is created the materials are reserved and the card appears in the first column of the board."
+      },
+      "clients-search": {
+        "title": "Finding a client",
+        "body": "Part of a name or phone number is enough — the list filters as you type."
+      },
+      "clients-table": {
+        "title": "The client list",
+        "body": "Click a column header to sort; clicking a row opens the client with their measurement history, orders and outstanding balance."
+      },
+      "clients-new": {
+        "title": "New client",
+        "body": "A name and a phone number are enough. Measurements are added later on the client's page and every version is kept in the history."
+      },
+      "inventory-table": {
+        "title": "Stock list",
+        "body": "Fabric and accessory balances, cost and reorder point. A row turns to the warning colour once it drops below that point."
+      },
+      "inventory-add": {
+        "title": "Intake and edits",
+        "body": "Add a new material or record an intake/write-off against an existing one — every movement leaves a trace in the Movements ledger."
+      },
+      "nav-dashboard": {
+        "title": "Dashboard",
+        "body": "The shape of the day: active orders, this week's fittings, revenue and stock alerts. Most days start here."
+      },
+      "nav-orders": {
+        "title": "The Orders section",
+        "body": "The workshop's main work in one group: the kanban board, the full list and order creation."
+      },
+      "nav-orders-board": {
+        "title": "Kanban board",
+        "body": "Orders laid out in columns by stage. Drag a card into the next column and the status follows."
+      },
+      "nav-orders-list": {
+        "title": "All orders",
+        "body": "A table with filters and sorting by date, client, amount and status — the quickest way to isolate unpaid orders."
+      },
+      "nav-orders-new": {
+        "title": "New order",
+        "body": "Client, garments, measurements, price and dates — all on a single page."
+      },
+      "nav-clients": {
+        "title": "Clients",
+        "body": "The client base: contact details, measurement history, past orders and the outstanding balance."
+      },
+      "nav-inventory": {
+        "title": "Warehouse",
+        "body": "Fabrics, accessories and every movement behind them. The number beside it counts items that fell below their reorder point."
+      },
+      "nav-fabrics": {
+        "title": "Fabrics",
+        "body": "Balance in metres, cost and reorder point. Intakes and write-offs are recorded right here."
+      },
+      "nav-accessories": {
+        "title": "Accessories",
+        "body": "Buttons, thread, zips and the rest — tracked exactly like fabrics."
+      },
+      "nav-movements": {
+        "title": "Movements ledger",
+        "body": "Every intake, consumption, reservation and release: when, by whom and for which order."
+      },
+      "nav-catalog": {
+        "title": "Garment types",
+        "body": "Dress, suit, chapan… Each type carries a standard material usage (its BOM) and a turnaround time — that is what an order's calculation is built from."
+      },
+      "nav-settings": {
+        "title": "Settings",
+        "body": "Staff, roles and system activity. The group only appears for those with the matching permissions."
+      },
+      "nav-staff": {
+        "title": "Staff",
+        "body": "Create accounts, assign roles and revoke access. Staff are never deleted — they are deactivated and their history stays."
+      },
+      "nav-roles": {
+        "title": "Roles and permissions",
+        "body": "This is where each role's view and reach is defined; the menu and the buttons follow it."
+      },
+      "nav-activity": {
+        "title": "Activity log",
+        "body": "Who did what: status changes, payments, stock and setting changes, each with its timestamp."
+      },
+      "orders-list-filters": {
+        "title": "Filters",
+        "body": "Search and filter by status. Clicking a column header sorts by date or amount."
+      },
+      "orders-list-flags": {
+        "title": "Quick flags",
+        "body": "The \"Unpaid\" and \"Overdue\" buttons isolate orders carrying a balance or running late in one click."
+      },
+      "orders-list-table": {
+        "title": "The order table",
+        "body": "Each row is an order: number, client, status, total and balance. Click a row to open the order."
+      },
+      "order-items": {
+        "title": "Garments",
+        "body": "Each garment in the order: its measurements, fabric, accessories and the tailor assigned. A single garment's status is changed here too."
+      },
+      "order-money": {
+        "title": "Payments",
+        "body": "The total, the payments taken and the balance left. A new payment goes in through \"Record payment\" at the top."
+      },
+      "order-schedule": {
+        "title": "Dates",
+        "body": "Order date, fitting and deadline. Once a deadline passes, both this page and the list flag it in red."
+      },
+      "order-status": {
+        "title": "Changing the status",
+        "body": "Moves the order to the next stage. Every move touches stock: cutting reserves the materials, completion consumes them."
+      },
+      "order-history": {
+        "title": "History",
+        "body": "Everything done to this order — status changes, payments and edits — with who did it and when."
+      },
+      "client-stats": {
+        "title": "Client numbers",
+        "body": "Total orders, lifetime spend, outstanding balance and the date of the last order."
+      },
+      "client-measurements": {
+        "title": "Measurement profiles",
+        "body": "Each garment type keeps its own measurements. A new set does not overwrite the old one — it stays in the history, so changes can be compared."
+      },
+      "client-measure": {
+        "title": "Taking measurements",
+        "body": "Adds a new set. It is the one offered automatically when an order is created."
+      },
+      "client-orders": {
+        "title": "Order history",
+        "body": "Every order this client has placed and where each one stands; click a row to open it."
+      },
+      "inventory-filters": {
+        "title": "Search and filters",
+        "body": "Search by name or filter by stock level, type and status. The total value of the warehouse sits on the right."
+      },
+      "accessories-filters": {
+        "title": "Search and filters",
+        "body": "Filter accessories by name, type and stock level. On the right: total value and how many items fell below their threshold."
+      },
+      "accessories-table": {
+        "title": "The accessories table",
+        "body": "Balance in pieces, cost and reorder point. Intake, write-off and edits live in the menu at the end of each row."
+      },
+      "accessories-add": {
+        "title": "New accessory",
+        "body": "Add buttons, zips, thread and the rest — with a unit of measure and a reorder point."
+      },
+      "movements-filters": {
+        "title": "Movement type",
+        "body": "Intake, consumption, reservation, release and correction — pick one to narrow the ledger."
+      },
+      "movements-table": {
+        "title": "The movements ledger",
+        "body": "Every change in the warehouse: date, type, material, quantity, who did it and for which order. These entries are never deleted."
+      },
+      "catalog-grid": {
+        "title": "Garment types",
+        "body": "Each card is a type: its standard material usage (BOM), turnaround time and base price. An order's calculation comes from exactly these values."
+      },
+      "catalog-new": {
+        "title": "Adding a type",
+        "body": "Create the garment type, give it a material usage and a turnaround — from then on it can be picked on an order."
+      },
+      "catalog-inactive": {
+        "title": "Show inactive",
+        "body": "Types that fell out of use are deactivated rather than deleted, so the history of old orders stays intact. This switch reveals them."
+      },
+      "staff-filters": {
+        "title": "Filtering staff",
+        "body": "Search by name, role and account status."
+      },
+      "staff-table": {
+        "title": "The staff list",
+        "body": "Each row carries the person, their role and their last sign-in. Editing and revoking access sit in the row menu."
+      },
+      "staff-add": {
+        "title": "Adding staff",
+        "body": "Name, phone, email and role. The password is for the first sign-in — the person changes it themselves afterwards."
+      },
+      "roles-list": {
+        "title": "Roles",
+        "body": "Four base roles: Super admin, Manager, Tailor and Inventory clerk. The number beside each counts its active staff."
+      },
+      "roles-matrix": {
+        "title": "The permission matrix",
+        "body": "What the selected role may see and change. Removing a permission removes the menu entry and the buttons too — and the server checks it as well."
+      },
+      "roles-save": {
+        "title": "Saving",
+        "body": "Saved changes reach staff in that role on their next page load. Super admin permissions cannot be changed."
+      },
+      "activity-filters": {
+        "title": "Filtering the log",
+        "body": "Search by staff name or action, or keep a single record type — order, client, stock."
+      },
+      "activity-table": {
+        "title": "The activity log",
+        "body": "Every meaningful action in the system: who, when and what. A disputed case can be reconstructed from here."
+      }
+    }
   }
 }

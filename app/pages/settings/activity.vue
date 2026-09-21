@@ -73,7 +73,7 @@ const entities = ['Order', 'Client', 'Fabric', 'Accessory', 'User', 'Role', 'Gar
       :description="$t('activity.events', { n: data?.total ?? 0 })"
       icon="i-lucide-history"
     >
-      <div class="flex flex-wrap items-center gap-2">
+      <div class="flex flex-wrap items-center gap-2" data-tour="activity-filters">
         <UInput v-model="filters.search" icon="i-lucide-search" :placeholder="$t('activity.searchPlaceholder')" class="w-full sm:w-72" />
         <USelect
           v-model="filters.entity"
@@ -84,7 +84,7 @@ const entities = ['Order', 'Client', 'Fabric', 'Accessory', 'User', 'Role', 'Gar
     </SharedPageHeader>
 
     <div class="p-4 sm:p-6">
-      <UCard :ui="{ body: 'p-0 sm:p-0' }">
+      <UCard :ui="{ body: 'p-0 sm:p-0' }" data-tour="activity-table">
         <UTable
           :data="data?.items ?? []"
           :columns="columns"

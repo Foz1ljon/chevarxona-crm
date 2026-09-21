@@ -125,7 +125,7 @@ function deadlineTone(deadline?: string | null, status?: string) {
         </UButton>
       </template>
 
-      <div class="flex flex-wrap items-center gap-2">
+      <div class="flex flex-wrap items-center gap-2" data-tour="orders-list-filters">
         <UInput
           v-model="filters.search"
           icon="i-lucide-search"
@@ -140,6 +140,7 @@ function deadlineTone(deadline?: string | null, status?: string) {
           :color="filters.unpaid === 'true' ? 'warning' : 'neutral'"
           icon="i-lucide-hand-coins"
           size="sm"
+          data-tour="orders-list-flags"
           @click="() => { filters.unpaid = filters.unpaid === 'true' ? undefined : 'true' }"
         >
           {{ $t('orders.unpaid') }}
@@ -158,7 +159,7 @@ function deadlineTone(deadline?: string | null, status?: string) {
     </SharedPageHeader>
 
     <div class="p-4 sm:p-6">
-      <UCard :ui="{ body: 'p-0 sm:p-0' }">
+      <UCard :ui="{ body: 'p-0 sm:p-0' }" data-tour="orders-list-table">
         <UTable
           v-model:sorting="sorting"
           :data="data?.items ?? []"

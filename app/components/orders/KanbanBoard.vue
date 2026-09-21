@@ -112,10 +112,11 @@
 </script>
 
 <template>
-  <div class="flex gap-3 overflow-x-auto pb-4 -mx-4 px-4 sm:-mx-6 sm:px-6 snap-x">
+  <div class="flex gap-3 overflow-x-auto pb-4 -mx-4 px-4 sm:-mx-6 sm:px-6 snap-x" data-tour="orders-board">
     <section
       v-for="lane in lanes"
       :key="lane.status"
+      :data-tour="lane.status === lanes[0]?.status ? 'orders-lane' : undefined"
       class="w-68 shrink-0 flex flex-col rounded-lg bg-elevated/40 ring ring-default snap-start"
       :class="hoverLane === lane.status ? 'kanban-drag-over' : ''"
       :aria-label="`${orderStatus(lane.status).label} — ${$t('orders.ordersCount', { n: lane.count })}`"

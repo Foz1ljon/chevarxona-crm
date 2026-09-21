@@ -33,6 +33,36 @@ nodira@chevarxona.uz / demo1234    # manager (every demo staff account)
 Change that password immediately under **Settings → Staff**, or set
 `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD` before the first run.
 
+### The built-in guided tour
+
+The first sign-in starts a one-minute walkthrough of the shell (driver.js), and
+the **?** button in the header replays it, walks the sidebar menu entry by
+entry, or runs the tour for the page you are on. Every page behind the login
+has one: the dashboard, the board, the order list and a single order, clients
+and a client's page, fabrics, accessories, movements, garment types, staff,
+roles and the activity log.
+
+Tours live in one place, `app/composables/useTour.ts`: a step names a
+`data-tour="<id>"` attribute in the markup and its copy comes from
+`tour.steps.<id>` in `i18n/locales`, so tours are translated like everything
+else. A step whose element is missing — hidden by a permission or by the
+viewport — is dropped rather than pointing at empty space, which is why adding a
+step is a two-line change:
+
+```ts
+// app/composables/useTour.ts
+{ el: 'orders-lane', side: 'right', permission: 'orders:status_change' }
+```
+```vue
+<section data-tour="orders-lane">…</section>
+```
+
+The menu tour is not a list at all: it is generated from `NAVIGATION` in
+`app/utils/navigation.ts`, where each entry names its own anchor. A new sidebar
+row joins the tour by declaring `tour: 'nav-x'` plus a `tour.steps.nav-x`
+message, and the tour unfolds every collapsed group before it starts so the
+child rows are actually on screen.
+
 ### Rebuilding the demo data
 
 The fastest way to get a clean, fully populated workshop is the reset script.
@@ -206,6 +236,37 @@ shared/               Permission catalogue, order status machine, API types
 
 `shared/` is the reason the two halves cannot drift: the permission list the
 server enforces and the one the sidebar filters against are the same file.
+
+---
+
+## Deploying to Vercel
+
+`vercel.json` pins the build (pnpm, frozen lockfile), the `fra1` region — the
+closest one to Uzbekistan — and the security headers. Nuxt detects the Vercel
+preset itself, so there is nothing else to configure in the dashboard beyond the
+environment:
+
+| Variable | Value on Vercel |
+| --- | --- |
+| `MONGODB_URI` | A **replica set** connection string (Atlas gives you one). Serverless functions reconnect often, so a standalone `mongod` is not a good fit. |
+| `NUXT_SESSION_PASSWORD` | A fresh 32+ character secret — not the one from `.env`. |
+| `SEED_ON_BOOT` | `false`. Otherwise every cold start tries to seed the demo workshop. |
+| `SEED_RESET` | `false` (or leave it out). |
+| `NUXT_PUBLIC_SITE_URL` | Only needed for a custom domain; otherwise the Vercel domain is used. |
+
+Create the first admin by seeding once locally against the production database,
+or by setting `SEED_ON_BOOT=true` for a single deploy and turning it off again.
+
+### SEO and link previews
+
+`app.vue` emits a localised description plus the full Open Graph / Twitter set,
+so a link pasted into Telegram or Slack renders `public/og-image.jpg` with the
+app name in the active language. `nuxt.config.ts` carries the icons, the web
+manifest and the light/dark `theme-color`.
+
+Every route sits behind a session, so the app ships `noindex, nofollow` and a
+`Disallow: /` in `public/robots.txt`. If a public marketing page is ever added,
+flip both — they are one line each.
 
 ---
 

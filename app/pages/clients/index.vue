@@ -93,7 +93,7 @@ const columns = computed<TableColumn<Client>[]>(() => [
       icon="i-lucide-users"
     >
       <template #actions>
-        <UButton v-if="$can('clients:create')" icon="i-lucide-user-plus" @click="openCreate">
+        <UButton v-if="$can('clients:create')" icon="i-lucide-user-plus" data-tour="clients-new" @click="openCreate">
           {{ $t('clients.newClient') }}
         </UButton>
       </template>
@@ -104,6 +104,7 @@ const columns = computed<TableColumn<Client>[]>(() => [
           icon="i-lucide-search"
           :placeholder="$t('clients.searchPlaceholder')"
           class="w-full sm:w-72"
+          data-tour="clients-search"
         />
 
         <UButton
@@ -129,7 +130,7 @@ const columns = computed<TableColumn<Client>[]>(() => [
     </SharedPageHeader>
 
     <div class="p-4 sm:p-6">
-      <UCard :ui="{ body: 'p-0 sm:p-0' }">
+      <UCard :ui="{ body: 'p-0 sm:p-0' }" data-tour="clients-table">
         <UTable
           v-model:sorting="sorting"
           :data="data?.items ?? []"

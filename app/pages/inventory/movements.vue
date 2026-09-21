@@ -64,7 +64,7 @@ const columns = computed<TableColumn<StockMovement>[]>(() => [
         </UButton>
       </template>
 
-      <div class="flex flex-wrap items-center gap-2">
+      <div class="flex flex-wrap items-center gap-2" data-tour="movements-filters">
         <USelect
           v-model="filters.type"
           :items="[
@@ -88,7 +88,7 @@ const columns = computed<TableColumn<StockMovement>[]>(() => [
     </SharedPageHeader>
 
     <div class="p-4 sm:p-6">
-      <UCard :ui="{ body: 'p-0 sm:p-0' }">
+      <UCard :ui="{ body: 'p-0 sm:p-0' }" data-tour="movements-table">
         <UTable
           :data="data?.items ?? []"
           :columns="columns"

@@ -138,7 +138,7 @@ function rowActions(material: MaterialBase) {
 
 <template>
   <div>
-    <div class="flex flex-wrap items-center gap-2 mb-4">
+    <div class="flex flex-wrap items-center gap-2 mb-4" data-tour="material-filters">
       <UInput
         v-model="filters.search"
         icon="i-lucide-search"
@@ -173,7 +173,7 @@ function rowActions(material: MaterialBase) {
       </div>
     </div>
 
-    <UCard :ui="{ body: 'p-0 sm:p-0' }">
+    <UCard :ui="{ body: 'p-0 sm:p-0' }" data-tour="material-table">
       <UTable
         :data="data?.items ?? []"
         :columns="columns"

@@ -39,6 +39,10 @@ export interface Client {
 export function useClients() {
   const toast = useApiToast()
   const { t } = useI18n()
+  // Forwards the incoming cookies while rendering on the server. The client
+  // page loads its measurement profiles during setup, and a bare `$fetch`
+  // reaches the API without the session — a hard reload would 401.
+  const requestFetch = useRequestFetch()
 
   function list(query: MaybeRefOrGetter<Record<string, unknown>>) {
     return useFetch<{ items: Client[], total: number, page: number, pages: number, limit: number }>(
@@ -61,7 +65,7 @@ export function useClients() {
   }
 
   async function measurements(id: string, activeOnly = true) {
-    return $fetch<{ clientName: string, profiles: MeasurementProfile[] }>(
+    return requestFetch<{ clientName: string, profiles: MeasurementProfile[] }>(
       `/api/clients/${id}/measurements`,
       { query: { activeOnly: String(activeOnly) } }
     )
