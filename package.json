@@ -17,6 +17,7 @@
     "@nuxtjs/i18n": "^10.6.0",
     "@pinia/nuxt": "^1.0.2",
     "bcryptjs": "^3.0.3",
+    "driver.js": "^1.8.0",
     "mongoose": "^9.10.1",
     "nuxt": "^4.5.2",
     "pinia": "^4.0.3",

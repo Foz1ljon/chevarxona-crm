@@ -12,6 +12,7 @@ const open = defineModel<boolean>('open', { default: false })
 const router = useRouter()
 const { t } = useI18n()
 const auth = useAuthStore()
+const tour = useTour()
 
 function go(to: string) {
   open.value = false
@@ -54,6 +55,18 @@ const staticGroups = computed<CommandPaletteGroup[]>(() => {
   if (auth.can('inventory:adjust')) {
     actions.push({ id: 'action:intake', label: t('header.stockIntake'), icon: 'i-lucide-package-plus', onSelect: () => go('/inventory?intake=1') })
   }
+
+  // The tour highlights elements on the page underneath, so let the palette
+  // finish closing before it starts measuring them.
+  actions.push({
+    id: 'action:tour',
+    label: t('tour.help'),
+    icon: 'i-lucide-circle-help',
+    onSelect: () => {
+      open.value = false
+      setTimeout(() => tour.start(), 250)
+    }
+  })
 
   return [
     { id: 'pages', label: t('command.sections'), items: pages },

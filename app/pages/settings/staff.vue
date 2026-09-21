@@ -87,12 +87,12 @@ const columns = computed<TableColumn<StaffUser>[]>(() => [
         <UButton v-if="$can('roles:manage')" to="/settings/roles" icon="i-lucide-shield-check" color="neutral" variant="subtle">
           {{ $t('staff.rolesBtn') }}
         </UButton>
-        <UButton v-if="$can('users:manage')" icon="i-lucide-user-plus" @click="openCreate">
+        <UButton v-if="$can('users:manage')" icon="i-lucide-user-plus" data-tour="staff-add" @click="openCreate">
           {{ $t('staff.addStaff') }}
         </UButton>
       </template>
 
-      <div class="flex flex-wrap items-center gap-2">
+      <div class="flex flex-wrap items-center gap-2" data-tour="staff-filters">
         <UInput v-model="filters.search" icon="i-lucide-search" :placeholder="$t('staff.searchPlaceholder')" class="w-full sm:w-72" />
 
         <USelect
@@ -117,7 +117,7 @@ const columns = computed<TableColumn<StaffUser>[]>(() => [
     </SharedPageHeader>
 
     <div class="p-4 sm:p-6">
-      <UCard :ui="{ body: 'p-0 sm:p-0' }">
+      <UCard :ui="{ body: 'p-0 sm:p-0' }" data-tour="staff-table">
         <UTable
           :data="data?.items ?? []"
           :columns="columns"

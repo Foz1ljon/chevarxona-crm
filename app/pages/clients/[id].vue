@@ -64,6 +64,7 @@ const groupedProfiles = computed(() => {
           icon="i-lucide-ruler"
           variant="subtle"
           color="neutral"
+          data-tour="client-measure"
           @click="() => { measureOpen = true }"
         >
           {{ $t('clients.takeMeasurements') }}
@@ -99,7 +100,7 @@ const groupedProfiles = computed(() => {
     </SharedPageHeader>
 
     <div class="p-4 sm:p-6 space-y-6">
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" data-tour="client-stats">
         <SharedStatCard
           :label="$t('clients.totalOrders')"
           :value="client.totalOrders"
@@ -128,7 +129,7 @@ const groupedProfiles = computed(() => {
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 items-start">
         <!-- Measurements -->
-        <UCard class="lg:col-span-2">
+        <UCard class="lg:col-span-2" data-tour="client-measurements">
           <template #header>
             <div class="flex items-center justify-between gap-3">
               <div>
@@ -238,7 +239,7 @@ const groupedProfiles = computed(() => {
             </p>
           </UCard>
 
-          <UCard>
+          <UCard data-tour="client-orders">
             <template #header>
               <h2 class="text-sm font-semibold text-highlighted">
                 {{ $t('clients.orderHistory') }}

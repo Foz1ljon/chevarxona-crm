@@ -67,8 +67,8 @@ function templateCost(category: GarmentCategory) {
       icon="i-lucide-shirt"
     >
       <template #actions>
-        <USwitch v-model="showInactive" :label="$t('common.showInactive')" size="sm" class="mr-2" />
-        <UButton v-if="$can('catalog:manage')" icon="i-lucide-plus" @click="openCreate">
+        <USwitch v-model="showInactive" :label="$t('common.showInactive')" size="sm" class="mr-2" data-tour="catalog-inactive" />
+        <UButton v-if="$can('catalog:manage')" icon="i-lucide-plus" data-tour="catalog-new" @click="openCreate">
           {{ $t('catalog.newType') }}
         </UButton>
       </template>
@@ -86,7 +86,7 @@ function templateCost(category: GarmentCategory) {
         </UButton>
       </SharedEmptyState>
 
-      <div v-else class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+      <div v-else class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4" data-tour="catalog-grid">
         <UCard
           v-for="category in visible"
           :key="category._id"

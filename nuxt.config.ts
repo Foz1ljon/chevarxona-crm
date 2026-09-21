@@ -5,7 +5,8 @@ export default defineNuxtConfig({
 
   modules: ['@nuxt/ui', '@pinia/nuxt', '@nuxtjs/i18n'],
 
-  css: ['~/assets/css/main.css'],
+  // driver.js ships the tour popover's layout; `main.css` re-skins it.
+  css: ['driver.js/dist/driver.css', '~/assets/css/main.css'],
 
   ui: {
     colorMode: true
@@ -42,7 +43,15 @@ export default defineNuxtConfig({
     seedAdminPassword: process.env.SEED_ADMIN_PASSWORD || 'admin123',
     public: {
       appName: 'Chevarxona CRM',
-      currency: process.env.NUXT_PUBLIC_CURRENCY || 'UZS'
+      currency: process.env.NUXT_PUBLIC_CURRENCY || 'UZS',
+      // Canonical origin for og:url / canonical links. Vercel exposes the
+      // production domain itself, so a preview deploy still gets real URLs;
+      // locally we fall back to the request origin in `app.vue`.
+      siteUrl:
+        process.env.NUXT_PUBLIC_SITE_URL
+        || (process.env.VERCEL_PROJECT_PRODUCTION_URL
+          ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+          : '')
     }
   },
 
@@ -55,9 +64,26 @@ export default defineNuxtConfig({
   app: {
     head: {
       titleTemplate: '%s · Chevarxona CRM',
+      // Everything here is language-independent; the localised description,
+      // Open Graph and canonical tags live in `app.vue` where `t()` exists.
       meta: [
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Custom tailoring & apparel manufacturing CRM' }
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
+        { name: 'application-name', content: 'Chevarxona CRM' },
+        { name: 'apple-mobile-web-app-title', content: 'Chevarxona' },
+        { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'mobile-web-app-capable', content: 'yes' },
+        // Phone numbers are rendered deliberately; let the app style them.
+        { name: 'format-detection', content: 'telephone=no' },
+        { name: 'color-scheme', content: 'light dark' },
+        // The browser chrome follows the active colour mode.
+        { name: 'theme-color', media: '(prefers-color-scheme: light)', content: '#f8fafc' },
+        { name: 'theme-color', media: '(prefers-color-scheme: dark)', content: '#0f172a' }
+      ],
+      link: [
+        { rel: 'icon', href: '/favicon.ico', sizes: '32x32' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png', sizes: '180x180' },
+        { rel: 'manifest', href: '/site.webmanifest' }
       ]
     }
   },

@@ -1,2 +1,5 @@
-User-Agent: *
-Disallow:
+# Chevarxona CRM ichki tizim: barcha sahifalar sessiya talab qiladi,
+# shuning uchun indekslashga hojat yo'q. Ommaviy sayt kerak bo'lsa,
+# bu faylni va app.vue ichidagi `robots` metasini birga o'zgartiring.
+User-agent: *
+Disallow: /

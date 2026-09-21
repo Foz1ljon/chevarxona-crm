@@ -7,6 +7,18 @@ const paletteOpen = useState('command-palette-open', () => false)
 
 const route = useRoute()
 watch(() => route.fullPath, () => { mobileOpen.value = false })
+
+/**
+ * First sign-in: run the "where is what" tour once. The cookie behind
+ * `hasSeen` keeps it from ever interrupting twice, and the short delay lets the
+ * sidebar and header finish painting so the highlights land on real boxes.
+ */
+const tour = useTour()
+onMounted(() => {
+  if (tour.hasSeen('overview')) return
+  const timer = setTimeout(() => tour.start('overview'), 900)
+  onBeforeUnmount(() => clearTimeout(timer))
+})
 </script>
 
 <template>

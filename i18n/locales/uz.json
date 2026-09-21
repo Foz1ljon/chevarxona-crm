@@ -871,5 +871,314 @@
     "actions": "Tezkor amallar",
     "clients": "Mijozlar",
     "orders": "Buyurtmalar"
+  },
+  "tour": {
+    "help": "Qo'llanma",
+    "overview": "Umumiy tanishuv",
+    "thisPage": "Shu sahifa bo'yicha",
+    "empty": "Bu sahifa uchun qo'llanma hali yo'q",
+    "next": "Keyingi",
+    "prev": "Orqaga",
+    "done": "Tugatdim",
+    "welcome": "Birinchi kirish — qisqa tanishuvni ko'rib chiqing",
+    "tours": {
+      "dashboard": "Boshqaruv paneli bo'yicha",
+      "orders": "Kanban doska bo'yicha",
+      "order-new": "Buyurtma yaratish bo'yicha",
+      "clients": "Mijozlar bo'yicha",
+      "inventory": "Ombor bo'yicha",
+      "navigation": "Menyu bo'yicha",
+      "orders-list": "Buyurtmalar ro'yxati bo'yicha",
+      "order-detail": "Buyurtma kartasi bo'yicha",
+      "client-detail": "Mijoz kartasi bo'yicha",
+      "accessories": "Aksessuarlar bo'yicha",
+      "movements": "Harakatlar jurnali bo'yicha",
+      "catalog": "Kiyim turlari bo'yicha",
+      "staff": "Xodimlar bo'yicha",
+      "roles": "Rollar bo'yicha",
+      "activity": "Faoliyat jurnali bo'yicha"
+    },
+    "steps": {
+      "brand": {
+        "title": "Chevarxona CRM",
+        "body": "Ustaxonaning yagona ish maydoni: mijozlar, o'lchovlar, buyurtmalar va ombor bir joyda. Tanishuv bir daqiqa oladi."
+      },
+      "sidebar": {
+        "title": "Bo'limlar menyusi",
+        "body": "Ish shu yerdan boshlanadi: Buyurtmalar (doska, ro'yxat, yangi), Mijozlar, Ombor (mato, aksessuar, harakatlar) va Sozlamalar. Ruxsatingiz yo'q bo'lim umuman ko'rinmaydi."
+      },
+      "search": {
+        "title": "Tezkor qidiruv (⌘K)",
+        "body": "Mijoz ismi, telefon yoki buyurtma raqamini yozing — menyuni kezmasdan to'g'ridan-to'g'ri kerakli sahifaga o'tasiz."
+      },
+      "quick-add": {
+        "title": "Tez qo'shish",
+        "body": "Eng ko'p ishlatiladigan uchta amal bir tugmada: yangi buyurtma, yangi mijoz va omborga kirim."
+      },
+      "notifications": {
+        "title": "Ogohlantirishlar",
+        "body": "Bugungi o'lchov va topshirish muddatlari hamda zaxirasi tugayotgan materiallar shu yerda to'planadi. Raqamli nishon — e'tibor talab qiladigan ishlar soni."
+      },
+      "language": {
+        "title": "Til",
+        "body": "O'zbekcha, ruscha va inglizcha. Tanlov cookie'da saqlanadi va keyingi kirishda ham eslab qolinadi."
+      },
+      "theme": {
+        "title": "Kunduzgi / tungi rejim",
+        "body": "Ko'z charchamasligi uchun mavzuni almashtiring — tanlov brauzeringizda saqlanadi."
+      },
+      "help": {
+        "title": "Qo'llanma tugmasi",
+        "body": "Ushbu tanishuvni istalgan paytda shu yerdan qayta ishga tushirasiz. Har bir asosiy sahifaning o'z qo'llanmasi bor."
+      },
+      "user-menu": {
+        "title": "Profil",
+        "body": "Parolni o'zgartirish, mavzu va tizimdan chiqish shu menyuda."
+      },
+      "dashboard-kpis": {
+        "title": "Asosiy ko'rsatkichlar",
+        "body": "Faol buyurtmalar, shu haftadagi o'lchovlar, tugayotgan materiallar va oylik tushum. Kartani bosing — tegishli ro'yxat kerakli filtr bilan ochiladi."
+      },
+      "dashboard-pipeline": {
+        "title": "Jarayon va tushum",
+        "body": "Buyurtmalar qaysi bosqichda to'planib qolgani va oxirgi oylardagi tushum dinamikasi. Ustaxonaning \"bo'yin\" joyi shu yerdan ko'rinadi."
+      },
+      "dashboard-agenda": {
+        "title": "Yaqin ikki hafta",
+        "body": "O'lchov va topshirish sanalari muddat bo'yicha tartiblangan. Qatorni bosish buyurtma kartasini ochadi."
+      },
+      "orders-filters": {
+        "title": "Filtrlar",
+        "body": "Qidiruv, tikuvchi va muhimlik darajasi bo'yicha saralang — doska darhol yangilanadi. O'ng tomonda topilgan buyurtmalar soni turadi."
+      },
+      "orders-board": {
+        "title": "Kanban doska",
+        "body": "Har bir ustun — ishlab chiqarish bosqichi: qabul qilindi, bichish, tikish, o'lchov, tayyor, topshirildi. Ustun sarlavhasida buyurtmalar soni va umumiy summasi ko'rinadi."
+      },
+      "orders-lane": {
+        "title": "Kartani ko'chirish",
+        "body": "Kartani sichqoncha bilan keyingi ustunga torting: holat o'zgaradi, material zaxirasi va tarix avtomatik yangilanadi. Ruxsat bo'lmasa doska faqat o'qish uchun ochiladi."
+      },
+      "orders-new": {
+        "title": "Yangi buyurtma",
+        "body": "Mijoz, kiyim turi, o'lchov, narx va muddat — hammasi bitta sahifada to'ldiriladi."
+      },
+      "new-order-client": {
+        "title": "1-qadam: mijoz",
+        "body": "Ism yoki telefon bo'yicha qidiring. Mijoz bazada bo'lmasa, shu yerning o'zida qo'shasiz — ishni to'xtatish shart emas."
+      },
+      "new-order-items": {
+        "title": "2-qadam: kiyimlar",
+        "body": "Har bir kiyim uchun turi, mato, aksessuar, o'lchov va tikuvchi tanlanadi. Bitta buyurtmaga bir nechta kiyim qo'shish mumkin."
+      },
+      "new-order-summary": {
+        "title": "3-qadam: narx va muddat",
+        "body": "Chegirma, oldindan to'lov va qolgan qarz avtomatik hisoblanadi; sana maydonlari tavsiya etilgan tayyorlash muddatini ko'rsatadi."
+      },
+      "new-order-bom": {
+        "title": "Material hisobi (BOM)",
+        "body": "Tanlangan kiyimlarga qancha mato va aksessuar ketishi hamda ombor yetarli-yo'qligi shu yerda. Yetishmovchilik bo'lsa, saqlashdan oldin ogohlantiradi."
+      },
+      "new-order-submit": {
+        "title": "Saqlash",
+        "body": "Buyurtma yaratilgach material zaxirasi band qilinadi va karta kanban doskasining birinchi ustunida paydo bo'ladi."
+      },
+      "clients-search": {
+        "title": "Mijoz qidirish",
+        "body": "Ism yoki telefon raqamining bir qismini yozish kifoya — ro'yxat yozayotganingizda filtrlanadi."
+      },
+      "clients-table": {
+        "title": "Mijozlar ro'yxati",
+        "body": "Ustun sarlavhasini bosib tartiblang; qatorni bosish mijoz kartasini — o'lchov tarixi, buyurtmalari va qarz balansi bilan ochadi."
+      },
+      "clients-new": {
+        "title": "Yangi mijoz",
+        "body": "Ism va telefon yetarli. O'lchovlarni keyinroq mijoz kartasiga qo'shib borasiz, har bir o'lchov tarixda saqlanadi."
+      },
+      "inventory-table": {
+        "title": "Ombor ro'yxati",
+        "body": "Mato va aksessuarlar zaxirasi, tannarxi va qayta buyurtma chegarasi. Zaxira chegaradan tushsa qator ogohlantirish rangiga o'tadi."
+      },
+      "inventory-add": {
+        "title": "Kirim va tahrir",
+        "body": "Yangi material qo'shing yoki mavjudiga kirim/chiqim yozing — har bir harakat \"Harakatlar\" jurnalida iz qoldiradi."
+      },
+      "nav-dashboard": {
+        "title": "Boshqaruv paneli",
+        "body": "Kunning umumiy manzarasi: faol buyurtmalar, shu haftadagi o'lchovlar, tushum va ombor ogohlantirishlari. Ish odatda shu yerdan boshlanadi."
+      },
+      "nav-orders": {
+        "title": "Buyurtmalar bo'limi",
+        "body": "Ustaxonaning asosiy ishi shu guruhda: kanban doska, to'liq ro'yxat va yangi buyurtma."
+      },
+      "nav-orders-board": {
+        "title": "Kanban doska",
+        "body": "Buyurtmalar bosqichlar bo'yicha ustunlarga terilgan. Kartani keyingi ustunga tortsangiz, holat o'zgaradi."
+      },
+      "nav-orders-list": {
+        "title": "Barcha buyurtmalar",
+        "body": "Jadval ko'rinishi: sana, mijoz, summa va holat bo'yicha filtr va saralash. To'lanmagan buyurtmalarni ajratib ko'rish uchun qulay."
+      },
+      "nav-orders-new": {
+        "title": "Yangi buyurtma",
+        "body": "Mijoz, kiyimlar, o'lchov, narx va muddat — hammasi bitta sahifada to'ldiriladi."
+      },
+      "nav-clients": {
+        "title": "Mijozlar",
+        "body": "Mijozlar bazasi: aloqa ma'lumotlari, o'lchov tarixi, oldingi buyurtmalari va qarz balansi."
+      },
+      "nav-inventory": {
+        "title": "Ombor",
+        "body": "Mato, aksessuar va ular bo'yicha barcha harakatlar. Yonidagi raqam — zaxirasi chegaradan tushgan pozitsiyalar soni."
+      },
+      "nav-fabrics": {
+        "title": "Matolar",
+        "body": "Metr hisobidagi qoldiq, tannarx va qayta buyurtma chegarasi. Kirim va chiqim shu yerdan yoziladi."
+      },
+      "nav-accessories": {
+        "title": "Aksessuarlar",
+        "body": "Tugma, ip, moln va boshqa jihozlar — hisobi matolar bilan bir xil yuritiladi."
+      },
+      "nav-movements": {
+        "title": "Harakatlar jurnali",
+        "body": "Har bir kirim, chiqim, band qilish va bekor qilish: qachon, kim tomonidan va qaysi buyurtma uchun."
+      },
+      "nav-catalog": {
+        "title": "Kiyim turlari",
+        "body": "Ko'ylak, kostyum, chapan... Har bir tur uchun standart material sarfi (BOM) va tayyorlash muddati shu yerda belgilanadi — buyurtmadagi hisob aynan shundan kelib chiqadi."
+      },
+      "nav-settings": {
+        "title": "Sozlamalar",
+        "body": "Xodimlar, rollar va tizim faoliyati. Bu guruh faqat tegishli ruxsati borlarga ko'rinadi."
+      },
+      "nav-staff": {
+        "title": "Xodimlar",
+        "body": "Hisob yaratish, rol berish va faoliyatini to'xtatish. Xodim o'chirilmaydi — nofaol qilinadi, tarixi esa saqlanib qoladi."
+      },
+      "nav-roles": {
+        "title": "Rollar va ruxsatlar",
+        "body": "Har bir rol nimani ko'rishi va o'zgartirishi mumkinligi shu yerda belgilanadi; menyu va tugmalar shunga qarab ko'rinadi."
+      },
+      "nav-activity": {
+        "title": "Faoliyat jurnali",
+        "body": "Kim nima qilgani: buyurtma holati, to'lovlar, ombor va sozlama o'zgarishlari — barchasi vaqti bilan."
+      },
+      "orders-list-filters": {
+        "title": "Filtrlar",
+        "body": "Qidiruv va holat bo'yicha saralash. Jadval sarlavhasini bosib sana yoki summa bo'yicha tartiblash mumkin."
+      },
+      "orders-list-flags": {
+        "title": "Tezkor belgilar",
+        "body": "\"To'lanmagan\" va \"Muddati o'tgan\" tugmalari qarzi bor yoki kechikkan buyurtmalarni bir bosishda ajratib beradi."
+      },
+      "orders-list-table": {
+        "title": "Buyurtmalar jadvali",
+        "body": "Har bir qator — bitta buyurtma: raqami, mijozi, holati, summasi va qarzi. Qatorni bosing, buyurtma kartasi ochiladi."
+      },
+      "order-items": {
+        "title": "Kiyimlar",
+        "body": "Buyurtmadagi har bir kiyim: o'lchovi, matosi, aksessuarlari va biriktirilgan tikuvchi. Bitta kiyimning holatini alohida o'zgartirish ham shu yerdan."
+      },
+      "order-money": {
+        "title": "To'lovlar",
+        "body": "Umumiy summa, qabul qilingan to'lovlar va qolgan qarz. Yangi to'lov yuqoridagi \"To'lov qabul qilish\" tugmasi orqali yoziladi."
+      },
+      "order-schedule": {
+        "title": "Muddatlar",
+        "body": "Buyurtma sanasi, o'lchov va topshirish muddati. Muddat o'tib ketsa, karta ham, ro'yxat ham qizil belgi bilan ogohlantiradi."
+      },
+      "order-status": {
+        "title": "Holatni o'zgartirish",
+        "body": "Buyurtmani keyingi bosqichga o'tkazadi. Har bir o'tish ombor bilan bog'liq: bichuvga o'tkazilganda material band qilinadi, yakunlanganda hisobdan chiqariladi."
+      },
+      "order-history": {
+        "title": "Tarix",
+        "body": "Buyurtma ustidagi barcha amallar — holat o'zgarishi, to'lovlar va tahrirlar — kim va qachon qilgani bilan."
+      },
+      "client-stats": {
+        "title": "Mijoz ko'rsatkichlari",
+        "body": "Jami buyurtmalar, sarflangan summa, qarz qoldig'i va oxirgi buyurtma sanasi."
+      },
+      "client-measurements": {
+        "title": "O'lchov profillari",
+        "body": "Har bir kiyim turi uchun alohida o'lchov saqlanadi. Yangi o'lchov eskisini o'chirmaydi — tarixda qoladi, shuning uchun o'zgarishni solishtirib ko'rish mumkin."
+      },
+      "client-measure": {
+        "title": "O'lchov olish",
+        "body": "Yangi o'lchov qo'shadi. Buyurtma yaratilayotganda aynan shu o'lchovlar avtomatik taklif qilinadi."
+      },
+      "client-orders": {
+        "title": "Buyurtmalar tarixi",
+        "body": "Ushbu mijozning barcha buyurtmalari va ularning holati; qatorni bosib buyurtmaga o'tasiz."
+      },
+      "inventory-filters": {
+        "title": "Qidiruv va filtrlar",
+        "body": "Nomi bo'yicha qidiring yoki zaxira holati, turi va faolligi bo'yicha saralang. O'ng tomonda ombordagi umumiy qiymat ko'rinadi."
+      },
+      "accessories-filters": {
+        "title": "Qidiruv va filtrlar",
+        "body": "Aksessuarlarni nomi, turi va zaxira holati bo'yicha saralash. O'ngda umumiy qiymat va chegaradan tushganlar soni turadi."
+      },
+      "accessories-table": {
+        "title": "Aksessuarlar jadvali",
+        "body": "Dona hisobidagi qoldiq, tannarx va qayta buyurtma chegarasi. Qator oxiridagi menyudan kirim, chiqim va tahrir amallari bajariladi."
+      },
+      "accessories-add": {
+        "title": "Yangi aksessuar",
+        "body": "Tugma, moln, ip va boshqalarni qo'shasiz — o'lchov birligi va qayta buyurtma chegarasi bilan birga."
+      },
+      "movements-filters": {
+        "title": "Harakat turi",
+        "body": "Kirim, chiqim, band qilish, bekor qilish va tuzatish — kerakli turni tanlab jurnalni toraytirasiz."
+      },
+      "movements-table": {
+        "title": "Harakatlar jurnali",
+        "body": "Ombordagi har bir o'zgarish: sana, turi, material, miqdor, kim bajargani va qaysi buyurtma uchun. Bu yozuvlar o'chirilmaydi."
+      },
+      "catalog-grid": {
+        "title": "Kiyim turlari",
+        "body": "Har bir karta — bitta tur: standart material sarfi (BOM), tayyorlash muddati va bazaviy narx. Buyurtmadagi hisob aynan shu qiymatlardan kelib chiqadi."
+      },
+      "catalog-new": {
+        "title": "Yangi tur qo'shish",
+        "body": "Yangi kiyim turini kiritib, unga material sarfi va muddat belgilaysiz — shundan keyin buyurtmalarda tanlanadigan bo'ladi."
+      },
+      "catalog-inactive": {
+        "title": "Nofaollarini ko'rsatish",
+        "body": "Ishlatilmaydigan turlar o'chirilmaydi, nofaol qilinadi — eski buyurtmalar tarixi buzilmasligi uchun. Shu tugma ularni ko'rsatadi."
+      },
+      "staff-filters": {
+        "title": "Xodimlarni saralash",
+        "body": "Ism, rol va faollik holati bo'yicha qidiring."
+      },
+      "staff-table": {
+        "title": "Xodimlar ro'yxati",
+        "body": "Har bir qatorda xodim, uning roli va oxirgi kirgan vaqti. Qator oxiridagi menyudan tahrirlash yoki faoliyatini to'xtatish mumkin."
+      },
+      "staff-add": {
+        "title": "Xodim qo'shish",
+        "body": "Ism, telefon, email va rol. Parol birinchi kirish uchun beriladi — xodim keyin o'zi o'zgartiradi."
+      },
+      "roles-list": {
+        "title": "Rollar",
+        "body": "To'rtta asosiy rol: Super admin, Menejer, Tikuvchi va Omborchi. Yonidagi raqam — shu roldagi faol xodimlar soni."
+      },
+      "roles-matrix": {
+        "title": "Ruxsatlar jadvali",
+        "body": "Tanlangan rol nimani ko'rishi va o'zgartirishi mumkinligi. Ruxsat olib tashlansa, menyu bandi ham, tugmalar ham yo'qoladi va server tomonida ham tekshiriladi."
+      },
+      "roles-save": {
+        "title": "Saqlash",
+        "body": "O'zgarishlar saqlangach, o'sha roldagi xodimlarda keyingi sahifa yangilanishida kuchga kiradi. Super admin ruxsatlari esa o'zgartirilmaydi."
+      },
+      "activity-filters": {
+        "title": "Jurnal filtri",
+        "body": "Xodim ismi yoki amal bo'yicha qidiring, yoki faqat bitta obyekt turini — buyurtma, mijoz, ombor — ko'ring."
+      },
+      "activity-table": {
+        "title": "Faoliyat jurnali",
+        "body": "Tizimdagi har bir muhim amal: kim, qachon va nima qilgani. Bahsli holatni shu yerdan tiklab olish mumkin."
+      }
+    }
   }
 }

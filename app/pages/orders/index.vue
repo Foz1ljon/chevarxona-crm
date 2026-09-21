@@ -59,12 +59,12 @@ function clearFilters() {
         <UButton to="/orders/list" icon="i-lucide-list" color="neutral" variant="subtle">
           {{ $t('orders.listView') }}
         </UButton>
-        <UButton v-if="$can('orders:create')" to="/orders/new" icon="i-lucide-plus">
+        <UButton v-if="$can('orders:create')" to="/orders/new" icon="i-lucide-plus" data-tour="orders-new">
           {{ $t('header.newOrder') }}
         </UButton>
       </template>
 
-      <div class="flex flex-wrap items-center gap-2">
+      <div class="flex flex-wrap items-center gap-2" data-tour="orders-filters">
         <UInput
           v-model="filters.search"
           icon="i-lucide-search"

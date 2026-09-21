@@ -77,6 +77,7 @@ function reset() {
         <UButton
           icon="i-lucide-save"
           :loading="saving"
+          data-tour="roles-save"
           :disabled="!dirty || isSuperAdmin"
           @click="save"
         >
@@ -88,7 +89,7 @@ function reset() {
     <div class="p-4 sm:p-6">
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 items-start">
         <!-- Role list -->
-        <div class="lg:col-span-1 space-y-2">
+        <div class="lg:col-span-1 space-y-2" data-tour="roles-list">
           <button
             v-for="role in data?.items ?? []"
             :key="role._id"
@@ -153,6 +154,7 @@ function reset() {
 
           <UsersPermissionMatrix
             v-if="activeRole"
+            data-tour="roles-matrix"
             v-model="draft"
             :groups="data?.groups ?? {}"
             :disabled="isSuperAdmin"

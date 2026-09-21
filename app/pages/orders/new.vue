@@ -219,6 +219,7 @@ async function submit() {
           icon="i-lucide-check"
           :loading="submitting"
           :disabled="problems.length > 0"
+          data-tour="new-order-submit"
           @click="submit"
         >
           {{ $t('orders.createOrder') }}
@@ -231,7 +232,7 @@ async function submit() {
         <!-- Main column -->
         <div class="xl:col-span-2 space-y-4">
           <!-- Client -->
-          <UCard>
+          <UCard data-tour="new-order-client">
             <template #header>
               <div class="flex items-center justify-between gap-3">
                 <h2 class="text-sm font-semibold text-highlighted flex items-center gap-2">
@@ -334,7 +335,7 @@ async function submit() {
           </UCard>
 
           <!-- Garments -->
-          <div class="space-y-3">
+          <div class="space-y-3" data-tour="new-order-items">
             <div class="flex items-center justify-between gap-3">
               <h2 class="text-sm font-semibold text-highlighted flex items-center gap-2">
                 <UIcon name="i-lucide-shirt" class="size-4 text-primary" />
@@ -420,7 +421,7 @@ async function submit() {
         </div>
 
         <!-- Sidebar -->
-        <div class="space-y-4 xl:sticky xl:top-20">
+        <div class="space-y-4 xl:sticky xl:top-20" data-tour="new-order-summary">
           <UCard>
             <template #header>
               <h2 class="text-sm font-semibold text-highlighted flex items-center gap-2">
@@ -475,6 +476,7 @@ async function submit() {
           </UCard>
 
           <OrdersBomCalculator
+            data-tour="new-order-bom"
             :lines="bom?.lines ?? []"
             :shortages="bom?.shortages ?? []"
             :material-cost="bom?.materialCost ?? 0"

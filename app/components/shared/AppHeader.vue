@@ -69,6 +69,7 @@ const title = computed(() => {
         size="sm"
         icon="i-lucide-search"
         class="hidden sm:inline-flex"
+        data-tour="search"
         @click="openPalette"
       >
         <span class="text-muted">{{ $t('header.search') }}</span>
@@ -84,26 +85,38 @@ const title = computed(() => {
         size="sm"
         icon="i-lucide-search"
         class="sm:hidden"
+        data-tour="search"
         :aria-label="$t('header.search')"
         @click="openPalette"
       />
 
-      <UDropdownMenu
-        v-if="quickActions.length"
-        :items="[quickActions.map(action => ({ label: action.label, icon: action.icon, to: action.to }))]"
-        :content="{ align: 'end' }"
-      >
-        <UButton icon="i-lucide-plus" size="sm" class="hidden sm:inline-flex">
-          {{ $t('header.quickAdd') }}
-        </UButton>
-        <UButton icon="i-lucide-plus" size="sm" square class="sm:hidden" :aria-label="$t('header.quickAdd')" />
-      </UDropdownMenu>
+      <span v-if="quickActions.length" class="inline-flex" data-tour="quick-add">
+        <UDropdownMenu
+          :items="[quickActions.map(action => ({ label: action.label, icon: action.icon, to: action.to }))]"
+          :content="{ align: 'end' }"
+        >
+          <UButton icon="i-lucide-plus" size="sm" class="hidden sm:inline-flex">
+            {{ $t('header.quickAdd') }}
+          </UButton>
+          <UButton icon="i-lucide-plus" size="sm" square class="sm:hidden" :aria-label="$t('header.quickAdd')" />
+        </UDropdownMenu>
+      </span>
 
-      <SharedColorModeToggle />
+      <span class="inline-flex" data-tour="help">
+        <SharedTourButton />
+      </span>
 
-      <SharedLanguageSwitcher />
+      <span class="inline-flex" data-tour="theme">
+        <SharedColorModeToggle />
+      </span>
 
-      <SharedNotificationCenter />
+      <span class="inline-flex" data-tour="language">
+        <SharedLanguageSwitcher />
+      </span>
+
+      <span class="inline-flex" data-tour="notifications">
+        <SharedNotificationCenter />
+      </span>
     </div>
   </header>
 </template>

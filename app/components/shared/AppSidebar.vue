@@ -53,13 +53,15 @@ function isActive(item: NavItem): boolean {
   return item.to === '/' ? route.path === '/' : route.path === item.to || route.path.startsWith(`${item.to}/`)
 }
 
-// Groups start open when they contain the current page.
-const open = reactive<Record<string, boolean>>({})
+// Groups start open when they contain the current page. The state is shared
+// (rather than local) so the guided tour can unfold every group before it walks
+// the menu — a collapsed group has no children in the DOM to point at.
+const open = useSidebarGroups()
 watchEffect(() => {
   for (const section of sections.value) {
     for (const item of section.items) {
-      if (item.children?.length && open[item.label] === undefined) {
-        open[item.label] = isActive(item)
+      if (item.children?.length && open.value[item.label] === undefined) {
+        open.value[item.label] = isActive(item)
       }
     }
   }
@@ -72,6 +74,7 @@ watchEffect(() => {
     <div
       class="h-16 flex items-center gap-2.5 border-b border-default shrink-0"
       :class="props.collapsed ? 'justify-center px-2' : 'px-4'"
+      data-tour="brand"
     >
       <div class="size-9 rounded-xl bg-primary ring-1 ring-primary/30 shadow-sm flex items-center justify-center shrink-0">
         <UIcon name="i-lucide-scissors" class="size-4.5 text-inverted" />
@@ -86,7 +89,7 @@ watchEffect(() => {
       </div>
     </div>
 
-    <nav class="flex-1 overflow-y-auto py-3 px-2 space-y-5" :aria-label="$t('nav.main')">
+    <nav class="flex-1 overflow-y-auto py-3 px-2 space-y-5" :aria-label="$t('nav.main')" data-tour="sidebar">
       <div v-for="(section, index) in sections" :key="section.label ?? index" class="space-y-1">
         <p
           v-if="section.label && !props.collapsed"
@@ -100,6 +103,7 @@ watchEffect(() => {
           <UTooltip v-if="!item.children?.length" :text="props.collapsed ? t(item.label) : ''" :disabled="!props.collapsed">
             <NuxtLink
               :to="item.to"
+              :data-tour="item.tour"
               class="group relative flex items-center gap-2.5 rounded-lg text-sm font-medium transition-all duration-150"
               :class="[
                 props.collapsed ? 'justify-center px-2 py-2' : 'px-2.5 py-2',
@@ -123,6 +127,7 @@ watchEffect(() => {
             <UTooltip :text="props.collapsed ? t(item.label) : ''" :disabled="!props.collapsed">
               <button
                 type="button"
+                :data-tour="item.tour"
                 class="relative w-full flex items-center gap-2.5 rounded-lg text-sm font-medium transition-colors"
                 :class="[
                   props.collapsed ? 'justify-center px-2 py-2' : 'px-2.5 py-2',
@@ -159,6 +164,7 @@ watchEffect(() => {
                 v-for="child in item.children"
                 :key="child.label"
                 :to="child.to"
+                :data-tour="child.tour"
                 class="flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-[13px] transition-colors"
                 :class="isActive(child)
                   ? 'bg-primary/10 text-primary font-medium'
@@ -174,10 +180,10 @@ watchEffect(() => {
       </div>
     </nav>
 
-    <div v-if="!props.collapsed" class="p-2 border-t border-default shrink-0">
+    <div v-if="!props.collapsed" class="p-2 border-t border-default shrink-0" data-tour="user-menu">
       <SharedUserMenu />
     </div>
-    <div v-else class="p-2 border-t border-default shrink-0 flex justify-center">
+    <div v-else class="p-2 border-t border-default shrink-0 flex justify-center" data-tour="user-menu">
       <SharedUserMenu collapsed />
     </div>
   </div>

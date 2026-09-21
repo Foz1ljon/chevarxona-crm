@@ -25,6 +25,7 @@ const ACCESSORY_CATEGORIES = [
         <UButton
           v-if="$can(['inventory:create', 'inventory:manage'])"
           icon="i-lucide-plus"
+          data-tour="accessories-add"
           @click="table?.openCreate()"
         >
           {{ $t('inventory.addAccessory') }}

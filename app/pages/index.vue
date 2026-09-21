@@ -53,7 +53,7 @@ const deadlineTone = (deadline?: string | null) => {
 
     <div class="p-4 sm:p-6 space-y-6">
       <!-- KPI row -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4" data-tour="dashboard-kpis">
         <SharedStatCard
           :label="$t('dashboard.activeOrders')"
           :value="kpis?.activeOrders ?? 0"
@@ -139,14 +139,14 @@ const deadlineTone = (deadline?: string | null) => {
       </div>
 
       <!-- Pipeline + revenue -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4" data-tour="dashboard-pipeline">
         <DashboardPipelineBar :pipeline="data?.pipeline ?? []" />
         <DashboardRevenueChart v-if="$can('reports:read')" :trend="data?.revenueTrend ?? []" />
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <!-- Agenda -->
-        <UCard class="lg:col-span-2">
+        <UCard class="lg:col-span-2" data-tour="dashboard-agenda">
           <template #header>
             <div class="flex items-center justify-between gap-3">
               <div>
